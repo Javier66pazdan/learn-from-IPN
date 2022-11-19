@@ -5,7 +5,7 @@
       <div id="questions">
         <div *ngIf="questions">
           <div *ngFor="let question of questions; let i = index">
-            <p>{{question.question}}</p>
+            <p class="question-section">{{i+1}}. {{question.question}}</p>
             <mat-radio-group aria-label="Select an option" [formControlName]="i">
               <mat-radio-button *ngFor="let answer of question.answers" [value]="answer">{{answer}}</mat-radio-button>
             </mat-radio-group>
