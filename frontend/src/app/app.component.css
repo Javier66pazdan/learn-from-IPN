@@ -2,6 +2,9 @@
     position: absolute;
     left: 95%;
 }
+section {
+  width: 100%
+}
 
 .footer{
     display: flex;
