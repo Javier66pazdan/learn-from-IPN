@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-quiz',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent {
+
+color: ThemePalette;
 
 }
