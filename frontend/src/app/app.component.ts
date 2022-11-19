@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-root',
