@@ -1,5 +1,4 @@
 import PyPDF2 
-import spacy
 
 def getTextFromFile(fname):
     pdfFileObj = open(fname, 'rb') 

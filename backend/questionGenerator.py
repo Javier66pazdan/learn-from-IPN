@@ -8,11 +8,19 @@ def generateDate(sentences,level):
     for x in sentences:
         for y in x.split(" "):
             if y.isnumeric() and len(y) == 4:
+                iteration=0
+                answers = []
+                answers.append(int(y))
+                while(iteration < 3):
+                     wrong = int(y)+math.trunc(random.random()*level)
+                     if not wrong in answers:
+                        iteration+= 1
+                        answers.append(wrong)
                 question.append(
                     {
                         "question":x.replace(y,"_________"),
                         "answer":int(y),
-                        "answers": [int(y), int(y)+math.trunc(random.random()*level), int(y)+math.trunc(random.random()*level), int(y)+math.trunc(random.random()*level)],
+                        "answers": answers
                     })
     return question
 

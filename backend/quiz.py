@@ -3,7 +3,6 @@ import json
 from difflib import get_close_matches
 import pdfReader
 import questionGenerator
-import pdfReader
 
 def return_json_response(message, status_code):
     return {
@@ -35,7 +34,7 @@ def make_quiz(requested_subject):
         fileContent = pdfReader.getTextFromFile('./pdfs_and_words/' + fileName)
         # method to make questions until it will reach specified amount of questions
         # make_questions(fileContent)
-        readyQuestions = questionGenerator.generateDate(pdfReader.sliceSentence(fileContent), 100)
+        readyQuestions = questionGenerator.generateDate(pdfReader.sliceSentence(fileContent), 5)
 
         for question in readyQuestions:
             questions.append(question)
