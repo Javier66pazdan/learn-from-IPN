@@ -18,3 +18,5 @@ section {
 .radio-buttons{
     margin-top: 5%;
 }
+
+button:focus { outline: none !important;;}
