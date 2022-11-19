@@ -1,0 +1,9 @@
+.home-button{
+    position: absolute;
+    left: 95%;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+}
