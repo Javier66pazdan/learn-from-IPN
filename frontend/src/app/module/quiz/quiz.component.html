@@ -1,17 +1,17 @@
-<section>
-    <div class="row">
+<section class="questions-section">
+  <div class="questions-wrapper">
+    <form [formGroup]="form">
+      <div *ngIf="questions">
+        <div *ngFor="let question of questions; let i = index">
+          <p>{{question.question}}</p>
+          <mat-radio-group aria-label="Select an option" [formControlName]="i">
+            <mat-radio-button *ngFor="let answer of question.answers" [value]="answer">{{answer}}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="submit()" [disabled]="formCompletedMsg">Sprawdź quiz</button>
+    </form>
 
-      <h1>Wprowadź słowo kluczowe</h1>
-      <div class="col-6">
-      </div>
-      <!-- radiobox -->
-      <div class="col-6">
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="1" [color]="color">Łatwy</mat-radio-button>
-          <mat-radio-button value="2" [color]="color">Średni</mat-radio-button>
-          <mat-radio-button value="3" [color]="color">Trudny</mat-radio-button>
-        </mat-radio-group>
-        <button mat-raised-button color="warn">Generuj test</button>
-      </div>
-    </div>
-  </section>
+    <p *ngIf="formCompletedMsg">{{formCompletedMsg}}</p>
+  </div>
+</section>

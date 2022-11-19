@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
+import {QuizService} from "../../services/quiz.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-main',
@@ -9,5 +11,27 @@ import { ThemePalette } from '@angular/material/core';
 export class MainComponent {
 
   color: ThemePalette = 'warn';
+  searchedValue: string = '';
+  isLoading = false;
 
+  constructor(private quizService: QuizService, private router: Router) {
+  }
+
+  onSubmit() {
+    const body = {
+      subject: this.searchedValue
+    }
+    this.quizService.getQuestions(body).subscribe({
+      next: value => {
+        this.quizService.setQuizQuestions(value);
+        this.router.navigate(['/quiz'])
+      },
+      error: (err) => {
+        console.log(err)
+      },
+      complete: () => {
+        // this.router.navigate(['/quiz'])
+      }
+    })
+  }
 }

@@ -12,11 +12,14 @@
         <div class="input-info">
           <h4>Wprowadź słowo kluczowe</h4>
         </div>
-      
-        <form class="example-form">
+
+        <form class="example-form" (ngSubmit)="onSubmit()">
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Słowa kluczowe">
+            <input matInput placeholder="Słowa kluczowe" [(ngModel)]="searchedValue" name="searchedValue">
           </mat-form-field>
+          <div>
+            <button type="submit" mat-raised-button color="warn">Generuj</button>
+          </div>
         </form>
       </div>
       <!-- radiobox -->
@@ -32,9 +35,7 @@
             <mat-radio-button value="3" [color]="color">Trudny</mat-radio-button>
           </div>
         </mat-radio-group>
-        <div>
-          <button mat-raised-button color="warn" routerLink="/quiz">Generuj</button>
-        </div>
       </div>
     </div>
   </section>
+</div>

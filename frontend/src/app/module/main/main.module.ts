@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { MaterialModule } from 'src/material.module';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { MaterialModule } from 'src/material.module';
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
     MainRoutingModule
   ],
   bootstrap: [MainComponent]
