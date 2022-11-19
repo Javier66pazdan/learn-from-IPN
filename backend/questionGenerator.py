@@ -11,10 +11,8 @@ def generateDate(sentences,level):
                 question.append(
                     {
                         "question":x.replace(y,"_________"),
-                        "answear":y,
-                        "wrong1":int(y)+math.trunc(random.random()*level),
-                        "wrong2":int(y)+math.trunc(random.random()*level),
-                        "wrong3":int(y)-math.trunc(random.random()*level)
+                        "answer":int(y),
+                        "answers": [int(y), int(y)+math.trunc(random.random()*level), int(y)+math.trunc(random.random()*level), int(y)+math.trunc(random.random()*level)],
                     })
     return question
 
