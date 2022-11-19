@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'frontend';
   srcResult = '';
+  color: ThemePalette = 'warn';
 
   onFileSelected() {
     const inputNode: any = document.querySelector('#file');

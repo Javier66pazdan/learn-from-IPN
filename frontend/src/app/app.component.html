@@ -346,14 +346,28 @@
 
 <div class="content" role="main">
   <!-- input file -->
-  <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
-  <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
-  <!-- radiobox -->
-  <mat-radio-group aria-label="Select an option">
-    <mat-radio-button value="1">Option 1</mat-radio-button>
-    <mat-radio-button value="2">Option 2</mat-radio-button>
-    <mat-radio-button value="3">Option 3</mat-radio-button>
-  </mat-radio-group>
+  <section>
+    <div class="row">
+
+      <h1>Wprowadź słowo kluczowe</h1>
+      <div class="col-6">
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Favorite food</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="Sushi">
+          </mat-form-field>
+        </form>
+      </div>
+      <!-- radiobox -->
+      <div class="col-6">
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="1" [color]="color">Łatwy</mat-radio-button>
+          <mat-radio-button value="2" [color]="color">Średni</mat-radio-button>
+          <mat-radio-button value="3" [color]="color">Trudny</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+  </section>
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
 

@@ -3,10 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
+
+
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, MatRadioModule],
+  imports: [BrowserModule, MatRadioModule, MatInputModule],
   providers: [],
   bootstrap: [AppComponent],
 })
