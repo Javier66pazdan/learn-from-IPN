@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
-import { QuizComponent } from 'src/layouts/quiz/quiz.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'quiz',
+  templateUrl: './quiz.component.html',
+  styleUrls: ['./quiz.component.css'],
 })
-export class AppComponent {
+export class QuizComponent {
   title = 'frontend';
   srcResult = '';
   color: ThemePalette = 'warn';
