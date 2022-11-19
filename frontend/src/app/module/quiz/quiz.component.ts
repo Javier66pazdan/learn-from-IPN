@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import {QuizService} from "../../services/quiz.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import html2canvas from "html2canvas";
+import * as jspdf from "jspdf";
+import jsPDF from "jspdf";
+
 
 @Component({
   selector: 'app-quiz',
@@ -27,6 +31,20 @@ export class QuizComponent implements OnInit{
       array[i] = array[j];
       array[j] = temp;
     }
+  }
+
+  exportAsPDF(divId: any)
+  {
+    let data = document.getElementById(divId);
+    // @ts-ignore
+    html2canvas(data).then(canvas => {
+      const contentDataURL = canvas.toDataURL('image/png')  // 'image/jpeg' for lower quality output.
+      // @ts-ignore
+      let pdf = new jsPDF('v', 'cm', 'a4'); //Generates PDF in landscape mode
+      // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
+      pdf.addImage(contentDataURL, 'PNG', 0.5, 0.2, 20, 10);
+      pdf.save('Filename.pdf');
+    });
   }
 
   ngOnInit(): void {
