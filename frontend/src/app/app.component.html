@@ -338,24 +338,33 @@
   <!-- input file -->
   <section>
     <div class="row">
-
-      <h1>Wprowadź słowo kluczowe</h1>
       <div class="col-6">
+        <div class="input-info">
+          <h4>Wprowadź słowo kluczowe</h4>
+        </div>
+      
         <form class="example-form">
           <mat-form-field class="example-full-width">
-            <mat-label>Favorite food</mat-label>
-            <input matInput placeholder="Ex. Pizza" value="Sushi">
+            <input matInput placeholder="Słowa kluczowe">
           </mat-form-field>
         </form>
       </div>
       <!-- radiobox -->
-      <div class="col-6">
+      <div class="col-6 radio-buttons">
         <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="1" [color]="color">Łatwy</mat-radio-button>
-          <mat-radio-button value="2" [color]="color">Średni</mat-radio-button>
-          <mat-radio-button value="3" [color]="color">Trudny</mat-radio-button>
+          <div>
+            <mat-radio-button value="1" [color]="color">Łatwy</mat-radio-button>
+          </div>
+          <div>
+            <mat-radio-button value="2" [color]="color">Średni</mat-radio-button>
+          </div>
+          <div>
+            <mat-radio-button value="3" [color]="color">Trudny</mat-radio-button>
+          </div>
         </mat-radio-group>
-        <button mat-raised-button color="warn">Warn</button>
+        <div>
+          <button mat-raised-button color="warn">Generuj</button>
+        </div>
       </div>
     </div>
   </section>

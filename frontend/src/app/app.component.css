@@ -10,3 +10,11 @@ section {
     display: flex;
     justify-content: center;
 }
+
+.input-info{
+    margin-bottom: 20px;
+}
+
+.radio-buttons{
+    margin-top: 5%;
+}
