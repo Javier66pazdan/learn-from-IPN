@@ -1,12 +1,16 @@
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <img width="40" alt="TON Logo"
-      src="../assets/images/Logo_TON.svg" />
-  <span>BANAH</span>
+<div class="toolbar justify-content-between" role="banner">
+  <div>
+
+    <img width="70" alt="TON Logo"
+        src="../assets/images/Logo_TON.png" />
+    <span>BANAH</span>
+  </div>
 
   <div class="home-button">
-    <button mat-fab color="warn" [ngStyle]="{transform: 'scale(0.8)'}" routerLink="./">
-      <mat-icon aria-hidden="false" aria-label="home icon" fontIcon="home"></mat-icon>
+    <button class="btnHome" routerLink="./">
+      <img src="../assets/images/home.svg" class="homeButton" />
+
     </button>
   </div>
 </div>

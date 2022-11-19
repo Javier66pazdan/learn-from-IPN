@@ -4,19 +4,22 @@ import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { MaterialModule } from 'src/material.module';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
+import {
+  MatRadioModule,
+  MAT_RADIO_DEFAULT_OPTIONS,
+} from '@angular/material/radio';
 
 
 @NgModule({
-  declarations: [
-    MainComponent
+  declarations: [MainComponent],
+  imports: [CommonModule, MaterialModule, FormsModule, MainRoutingModule],
+  providers: [
+    {
+      provide: MAT_RADIO_DEFAULT_OPTIONS,
+      useValue: { color: 'accent' },
+    },
   ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    FormsModule,
-    MainRoutingModule
-  ],
-  bootstrap: [MainComponent]
+  bootstrap: [MainComponent],
 })
-export class MainModule { }
+export class MainModule {}

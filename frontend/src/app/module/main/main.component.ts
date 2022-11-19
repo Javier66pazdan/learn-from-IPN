@@ -6,32 +6,32 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
 })
 export class MainComponent {
+  // accent;
 
-  color: ThemePalette = 'warn';
+  accent: ThemePalette = 'accent';
   searchedValue: string = '';
   isLoading = false;
 
-  constructor(private quizService: QuizService, private router: Router) {
-  }
+  constructor(private quizService: QuizService, private router: Router) {}
 
   onSubmit() {
     const body = {
-      subject: this.searchedValue
-    }
+      subject: this.searchedValue,
+    };
     this.quizService.getQuestions(body).subscribe({
-      next: value => {
+      next: (value) => {
         this.quizService.setQuizQuestions(value);
-        this.router.navigate(['/quiz'])
+        this.router.navigate(['/quiz']);
       },
       error: (err) => {
-        console.log(err)
+        console.log(err);
       },
       complete: () => {
         // this.router.navigate(['/quiz'])
-      }
-    })
+      },
+    });
   }
 }

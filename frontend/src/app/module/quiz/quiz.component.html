@@ -9,7 +9,7 @@
           </mat-radio-group>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" (click)="submit()" [disabled]="formCompletedMsg">Sprawdź quiz</button>
+      <button (click)="submit()" mat-raised-button class="btnGenerate" [disabled]="formCompletedMsg">Sprawdź quiz q</button>
     </form>
 
     <p *ngIf="formCompletedMsg">{{formCompletedMsg}}</p>
