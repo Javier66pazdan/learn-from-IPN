@@ -9,7 +9,8 @@ cors = CORS(app)
 def test_endpoint():
     data = request.json
     requested_subject = data['subject']
-    return quiz.make_quiz(requested_subject)
+    requested_level = data['level']
+    return quiz.make_quiz(requested_subject,requested_level)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000) 
