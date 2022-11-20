@@ -12,7 +12,7 @@ export class QuizService {
   constructor(private http: HttpClient) { }
   url: string = "http://localhost:3000";
 
-  getQuestions(body: {subject: string}){
+  getQuestions(body: {subject: string, level: number}){
     return this.http.post(this.url+"/",body);
   }
 

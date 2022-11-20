@@ -14,6 +14,7 @@ export class MainComponent {
 
   accent: ThemePalette = 'accent';
   searchedValue: string = '';
+  level: string = '1';
   isLoading = false;
 
   constructor(private quizService: QuizService, private router: Router) {}
@@ -22,6 +23,7 @@ export class MainComponent {
     this.isLoading = true;
     const body = {
       subject: this.searchedValue,
+      level: Number(this.level) 
     };
     this.quizService.getQuestions(body).subscribe({
       next: (value) => {      
