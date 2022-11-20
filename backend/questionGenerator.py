@@ -1,8 +1,9 @@
 import math
 import random
 import pdfReader
+import csv
+from difflib import get_close_matches
 
-#TODO no repte of date
 def generateDate(sentences,level):
     question = []
     for x in sentences:
@@ -24,10 +25,23 @@ def generateDate(sentences,level):
                     })
     return question
 
-# generateDate(pdfReader.sliceSentence('''W roku 2018 przypada 100. rocznica odzyskania przez Polskę niepodległości. W tym
-# szczególnym okresie przypominamy sobie dążenia Polaków, którzy przez okres 123 lat
-# zaborów starali się odzyskać niepodległość, walcząc zbrojnie i prowadząc działania
-# organicznikowskie. W roku 1918 marzenia naszych przodków przestały być dążeniami, a stały się
-# rzeczywistością. Walka o Rzeczpospolitą była udziałem wielu osób i środowisk, wielkim
-# wspólnym wysiłkiem ponad podziałami, którego wyjątkowym przykładem był udział
-# Wielkopolan w zwycięskim Powstaniu Wielkopolskim.'''),5)
+#TODO Losowe złe imiona i poziomy trudnosci
+def generateName(sentences,level):
+    rows=[]
+    result=[]
+    with open("imiona_polskie.csv",'r',encoding='utf-8-sig') as csvfile:
+        csvreader = csv.reader(csvfile)
+        for row in csvreader:
+            rows.append(row[0].lower())
+    for x in sentences:
+        for y in x.split(" "):
+            name = get_close_matches(y.lower(),rows, 1, 0.85)
+            if len(name) != 0:
+                answers = [y,"Adaś","Mariusz","Tadeusz"]
+                result.append( {
+                        "question":x.replace(y,"_________"),
+                        "answer":y,
+                        "answers": answers
+                    })
+    print(result)
+    return result
