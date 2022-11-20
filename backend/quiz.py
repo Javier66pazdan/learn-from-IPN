@@ -1,9 +1,11 @@
 import os
 import json
 from difflib import get_close_matches
+import random
 import pdfReader
 import questionGenerator
-import itertools
+import csv
+
 
 def return_json_response(message, status_code):
     return {
@@ -49,8 +51,17 @@ def make_quiz(requested_subject,requested_level):
         # make_questions(fileContent)
         readyQuestions = questionGenerator.generateDate(pdfReader.sliceSentence(fileContent), level)
         readyQuestions += questionGenerator.generateName(pdfReader.sliceSentence(fileContent),level)
+        rows=[]
+        questionsArr = []
+        with open("banList.csv",'r',encoding='utf-8-sig') as csvfile:
+            csvreader = csv.reader(csvfile)
+            for row in csvreader:
+                rows.append(row)
         for question in readyQuestions:
-            questions.append(question)
+            for row in rows:
+                if row[0] not in question['question'] and len(get_close_matches(question['question'],questionsArr,2,0.7)) ==0 :
+                    questions.append(question)
+                    questionsArr.append(question['question'])
         # filesContent.append(pdfReader.getTextFromFile('./pdfs_and_words/' + fileName))
-
+    random.shuffle(questions)
     return questions[:max_size]

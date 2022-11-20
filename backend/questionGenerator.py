@@ -17,12 +17,13 @@ def generateDate(sentences,level):
                      if not wrong in answers:
                         iteration+= 1
                         answers.append(wrong)
-                question.append(
-                    {
-                        "question":x.replace(y,"_________"),
-                        "answer":int(y),
-                        "answers": answers
-                    })
+                if len(get_close_matches(x,question,2,0.8)) !=2 :
+                    question.append(
+                        {
+                            "question":x.replace(y,"_________"),
+                            "answer":int(y),
+                            "answers": answers
+                        })
     return question
 
 #TODO Losowe złe imiona i poziomy trudnosci
@@ -38,12 +39,13 @@ def generateName(sentences,level):
             name = get_close_matches(y.lower(),rows, 1, 0.90)
             if len(name) != 0:
                 answers = [y,rows[math.trunc(random.random()*50)].capitalize(),rows[math.trunc(random.random()*50)].capitalize(),rows[math.trunc(random.random()*50)].capitalize()]
-                result.append( {
-                        "question":x.replace(y,"_________"),
-                        "answer":y,
-                        "answers": answers
-                    })
-                break
+                if len(get_close_matches(x,result,2,0.8)) !=2 :
+                    result.append( {
+                            "question":x.replace(y,"_________"),
+                            "answer":y,
+                            "answers": answers
+                        })
+                    break
                     
     return result
 
