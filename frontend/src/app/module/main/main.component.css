@@ -15,9 +15,6 @@ section {
     margin-bottom: 20px;
 }
 
-.radio-buttons{
-    margin-top: 5%;
-}
 
 button:focus { outline: none !important;;}
 
@@ -237,6 +234,7 @@ button:focus { outline: none !important;;}
   /* background-color: var(--mdc-protected-button-label-text-color) !important; */
   background-color: red !important;
   color: white!important;
+  margin-top: 20px;
 }
 .btnGenerate.mat-mdc-raised-button:not(:disabled){
   /* background-color: var(--mdc-protected-button-label-text-color); */
