@@ -64,9 +64,9 @@ button:focus { outline: none !important;;}
     align-items: center;
     background-color: red;
     color: white;
-    font-weight: 600;
+    font-weight: 400;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
   }
 
   .footer img {
