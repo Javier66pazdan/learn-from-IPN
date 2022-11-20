@@ -2,11 +2,16 @@
     margin: 0;
 }
 .questions-section {
-  width: 80%;
+  max-width:800px;
   height: 100vh;
   display: flex;
   align-items: center;
   margin: 0 auto 0 auto;
+}
+.quiz-download-btn{
+  margin-top: 14vh;
+  position: absolute;
+  right: 40px;
 }
 
 :root {

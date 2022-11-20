@@ -1,12 +1,15 @@
+<button class="btn btn-primary quiz-download-btn" (click)="exportAsPDF('questions')">Pobierz PDF</button>
 <section class="questions-section">
   <div class="questions-wrapper">
     <form [formGroup]="form">
-      <div *ngIf="questions">
-        <div *ngFor="let question of questions; let i = index">
-          <p>{{question.question}}</p>
-          <mat-radio-group aria-label="Select an option" [formControlName]="i">
-            <mat-radio-button *ngFor="let answer of question.answers" [value]="answer">{{answer}}</mat-radio-button>
-          </mat-radio-group>
+      <div id="questions">
+        <div *ngIf="questions">
+          <div *ngFor="let question of questions; let i = index">
+            <p>{{question.question}}</p>
+            <mat-radio-group aria-label="Select an option" [formControlName]="i">
+              <mat-radio-button *ngFor="let answer of question.answers" [value]="answer">{{answer}}</mat-radio-button>
+            </mat-radio-group>
+          </div>
         </div>
       </div>
       <button (click)="submit()" mat-raised-button class="btnGenerate" [disabled]="formCompletedMsg">Sprawdź quiz q</button>
