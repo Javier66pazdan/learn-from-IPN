@@ -18,24 +18,25 @@
             <input matInput placeholder="Słowa kluczowe" [(ngModel)]="searchedValue" name="searchedValue">
           </mat-form-field>
           <div>
-            <button type="submit" mat-raised-button color="warn">Generuj</button>
+            <button type="submit" mat-raised-button class="btnGenerate">Generuj</button>
           </div>
         </form>
       </div>
       <!-- radiobox -->
       <div class="col-6 radio-buttons">
-        <mat-radio-group aria-label="Select an option">
+        <mat-radio-group aria-label="Select an option" color="accent" id="accentColor">
           <div>
-            <mat-radio-button value="1" [checked]="true" [color]="color">Łatwy</mat-radio-button>
+            <mat-radio-button value="1" [checked]="true" color="accent">Łatwy</mat-radio-button>
           </div>
           <div>
-            <mat-radio-button value="2" [color]="color">Średni</mat-radio-button>
+            <mat-radio-button value="2" color="accent">Średni</mat-radio-button>
           </div>
           <div>
-            <mat-radio-button value="3" [color]="color">Trudny</mat-radio-button>
+            <mat-radio-button value="3" (color)="accent">Trudny</mat-radio-button>
           </div>
         </mat-radio-group>
       </div>
     </div>
   </section>
+  <div class="loader"></div>
 </div>

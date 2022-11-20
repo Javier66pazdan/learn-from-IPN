@@ -18,3 +18,24 @@
 .question-section{
     font-weight: bold;
 }
+
+:root {
+  --mdc-protected-button-label-text-color: red;
+  --mdc-radio-selected-icon-color: red !important;
+}
+
+.btnGenerate {
+  /* background-color: #dc143c; */
+  /* background-color: var(--mdc-protected-button-label-text-color) !important; */
+  background-color: red !important;
+  color: white !important;
+}
+
+.btnGenerate.mat-mdc-raised-button:not(:disabled) {
+  /* background-color: var(--mdc-protected-button-label-text-color); */
+  background-color: red !important;
+}
+
+.mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__outer-circle {
+  border-color: red !important;
+}
