@@ -64,3 +64,5 @@
   margin: 35px auto;
   padding: 0;
 }
+
+button:focus { outline: none !important;;}
