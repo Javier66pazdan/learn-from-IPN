@@ -14,6 +14,11 @@
   right: 40px;
 }
 
+
+.question-section{
+    font-weight: bold;
+}
+
 :root {
   --mdc-protected-button-label-text-color: red;
   --mdc-radio-selected-icon-color: red !important;
@@ -24,6 +29,10 @@
   /* background-color: var(--mdc-protected-button-label-text-color) !important; */
   background-color: red !important;
   color: white !important;
+}
+
+.labelStyle>.mdc-form-field>label{
+    margin-bottom: 0 !important;
 }
 
 .btnGenerate.mat-mdc-raised-button:not(:disabled) {

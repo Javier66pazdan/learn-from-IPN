@@ -1,19 +1,19 @@
 <!-- <button class="btn btn-primary quiz-download-btn" (click)="exportAsPDF('questions')">Pobierz PDF</button> -->
-<button mat-raised-button class="btnGenerate quiz-download-btn" (click)="exportAsPDF('questions')">Pobierz PDF d</button>
+<button mat-raised-button class="btnGenerate quiz-download-btn" (click)="exportAsPDF('questions')">Pobierz PDF</button>
 <section class="questions-section">
   <div class="questions-wrapper">
     <form [formGroup]="form">
       <div id="questions">
         <div *ngIf="questions">
           <div *ngFor="let question of questions; let i = index">
-            <p>{{question.question}}</p>
-            <mat-radio-group aria-label="Select an option" [formControlName]="i">
-              <mat-radio-button *ngFor="let answer of question.answers" [value]="answer">{{answer}}</mat-radio-button>
+            <p class="question-section">{{i+1}}. {{question.question}}</p>
+            <mat-radio-group class="d-inline-block" height="40px" aria-label="Select an option" [formControlName]="i">
+              <mat-radio-button  height="40px" *ngFor="let answer of question.answers" [value]="answer" class="labelStyle d-inline-block">{{answer}}</mat-radio-button>
             </mat-radio-group>
           </div>
         </div>
       </div>
-      <button (click)="submit()" mat-raised-button class="btnGenerate" [disabled]="formCompletedMsg">Sprawdź quiz q</button>
+      <button (click)="submit()" mat-raised-button class="btnGenerate" [disabled]="formCompletedMsg">Sprawdź quiz</button>
     </form>
 
     <p *ngIf="formCompletedMsg">{{formCompletedMsg}}</p>

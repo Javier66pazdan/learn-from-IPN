@@ -19,6 +19,7 @@ export class MainComponent {
   constructor(private quizService: QuizService, private router: Router) {}
 
   onSubmit() {
+    this.isLoading = true;
     const body = {
       subject: this.searchedValue,
     };
@@ -31,6 +32,7 @@ export class MainComponent {
         console.log(err);
       },
       complete: () => {
+        this.isLoading = false;
         // this.router.navigate(['/quiz'])
       },
     });

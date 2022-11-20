@@ -50,15 +50,26 @@ export class QuizComponent implements OnInit{
   ngOnInit(): void {
     // this.questions = this.quizService.getQuestions()
     this.questions = this.quizService.getQuizQuestions();
+    if(this.questions[0] == null){
+      window.location.href = './';
+    }
     this.questions.forEach((q: any) => {
       this.shuffleArray(q.answers)
     })
     this.initForm();
+    setTimeout(async() => {
+          
+      let labelList = await document.querySelectorAll(".mdc-form-field > label")        
+        labelList.forEach((label)=>{
+        label.classList.add('m-0');
+      });
+    }, 2500);
   }
 
   initForm() {
     this.form = new FormGroup({});
     this.questions.forEach((q: any, i: number) => this.form.addControl(i.toString(), new FormControl(null, Validators.required)))
+    
     // this.form = new FormGroup({ groups: formGroup });
   }
 
@@ -69,6 +80,7 @@ export class QuizComponent implements OnInit{
         this.goodAnswers++;
       }
     })
+    
     this.formCompletedMsg = `Łącznie udało Ci się uzyskać ${this.goodAnswers} poprawnych odpowiedzi.`
   }
 }
