@@ -3,10 +3,14 @@
 }
 .questions-section {
   max-width:800px;
-  height: 100vh;
+  /* height: calc(100vh - 8vh - 100px); */
   display: block;
-  align-items: center;
-  margin: 100px auto 150px auto;
+  /* align-items: center; */
+  margin: 15vh auto 150px auto;
+}
+
+.question {
+  margin-bottom: 15px;
 }
 
 .questions-wrapper {

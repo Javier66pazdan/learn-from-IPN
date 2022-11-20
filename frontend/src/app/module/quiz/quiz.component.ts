@@ -5,6 +5,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import html2canvas from "html2canvas";
 import * as jspdf from "jspdf";
 import jsPDF from "jspdf";
+import { Document, Packer, Paragraph, TextRun } from "docx";
+import * as FileSaver from 'file-saver';
 import { ChartComponent } from 'ng-apexcharts';
 
 import {
@@ -81,7 +83,7 @@ export class QuizComponent implements OnInit {
     html2canvas(data).then((canvas) => {
       const contentDataURL = canvas.toDataURL('image/png'); // 'image/jpeg' for lower quality output.
       // @ts-ignore
-      let pdf = new jsPDF('v', 'cm', 'a4'); //Generates PDF in landscape mode
+      let pdf = new jsPDF('v', 'cm', 'a4'); 
       // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
       pdf.addImage(contentDataURL, 'PNG', 0.5, 0.2, 20, 10);
       pdf.save('Filename.pdf');
@@ -134,5 +136,38 @@ export class QuizComponent implements OnInit {
     this.legend = ["Poprawne", "Niepoprawne"];
 
 
+  }
+
+  generateDocx() {
+    const questionParagraphs: Paragraph[] = [];
+    this.questions.forEach((q: any, index: number) => {
+      questionParagraphs.push(new Paragraph({
+      children: [
+          new TextRun(`${index+1}. ${q.question}`),
+      ]
+      }))
+      q.answers.forEach((answer: any) => {
+        questionParagraphs.push(new Paragraph({
+          children: [
+              new TextRun(`⚪ ${answer}`),
+          ]
+          }))
+      })
+    })
+    const doc = new Document({
+      sections: [
+          {
+              properties: {},
+              children: [
+                  ...questionParagraphs
+              ],
+          },
+      ],
+  });
+
+  Packer.toBlob(doc).then((blob) => {
+    // saveAs from FileSaver will download the file
+    FileSaver.saveAs(blob, 'Quiz.docx');
+});
   }
 }
