@@ -19,7 +19,7 @@ def read_file_names():
 
 def read_files(requested_subject):
     files = read_file_names()
-    searched_files = get_close_matches(requested_subject, files, 2, 0.4)
+    searched_files = get_close_matches(requested_subject, files, 5, 0.4)
     return searched_files
 
 def make_questions(fileText):
