@@ -1,15 +1,22 @@
-import PyPDF2 
+import PyPDF2
+import docx2txt
 
 def getTextFromFile(fname):
-    pdfFileObj = open(fname, 'rb') 
-    pdfReader = PyPDF2.PdfFileReader(pdfFileObj) 
-    x = 0
-    result = ''
-    while x < pdfReader.numPages:
-        pageObj = pdfReader.getPage(x)
-        result = result+pageObj.extractText()
-        x += 1
+    if fname.split(".")[2] =="docx":
+        f = open(fname, "r",encoding='utf-8')
+        return f.read()
+    else:
+        pdfFileObj = open(fname, 'rb') 
+        pdfReader = PyPDF2.PdfFileReader(pdfFileObj) 
+        x = 0
+        result = ''
+        while x < pdfReader.numPages:
+            pageObj = pdfReader.getPage(x)
+            result = result+pageObj.extractText()
+            x += 1
     return result
+
+
 
 def sliceSentence(text):
     sentenceList = []
