@@ -128,6 +128,8 @@ export class QuizComponent implements OnInit {
 
     this.formCompletedMsg = `Łącznie udało Ci się uzyskać ${this.goodAnswers} poprawnych odpowiedzi.`;
 
-    const ctx = document.getElementById('myChart');
+    this.chartOpts = [this.goodAnswers, this.questions.length - this.goodAnswers];
+    console.log(this.chartOpts);
+
   }
 }
