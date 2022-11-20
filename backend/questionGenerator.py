@@ -43,9 +43,11 @@ def generateName(sentences,level):
                         "answer":y,
                         "answers": answers
                     })
+                break
+                    
     return result
 
-#TODO Losowe złe imiona i poziomy trudnosci
+#TODO Losowe złe wartosci i poziomy trudnosci
 def generatePlace(sentences,level):
     rows=[]
     result=[]
@@ -63,24 +65,6 @@ def generatePlace(sentences,level):
                         "answer":y,
                         "answers": answers
                     })
-    print(result)
+                break
     return result
 
-
-generatePlace(pdfReader.sliceSentence('''Część oddziałów Polskiej Organizacji
-Wojskowej Górnego Śląska, pod
-dowództwem Alfonsa Zgrzebnioka, w nocy z
-16 na 17 sierpnia 1919 r. przystąpiła do
-działań zbrojnych. W pierwszym dniu
-powstania walki skoncentrowały się we
-wschodniej części powiatu pszczyńskiego,
-wzdłuż granicy z Polską. Niepowodzeniem
-zakończyła się próba przejęcia przez
-powstańców samej Pszczyny. Niemcy byli
-dobrze przygotowani, policja już wcześniej
-znała plany polskie, a patrole niemieckie
-uniemożliwiły koncentrację peowiaków.
-Niepowodzeniem zakończyła się także akcja
-POW G. Śl. w Otfinowie, chociaż tutaj
-podczas walk Niemcy ponieśli straty w
-ludziach.'''),1)
