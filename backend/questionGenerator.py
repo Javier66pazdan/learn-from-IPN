@@ -35,9 +35,9 @@ def generateName(sentences,level):
             rows.append(row[0].lower())
     for x in sentences:
         for y in x.split(" "):
-            name = get_close_matches(y.lower(),rows, 1, 0.85)
+            name = get_close_matches(y.lower(),rows, 1, 0.90)
             if len(name) != 0:
-                answers = [y,"Adaś","Mariusz","Tadeusz"]
+                answers = [y,rows[math.trunc(random.random()*50)].capitalize(),rows[math.trunc(random.random()*50)].capitalize(),rows[math.trunc(random.random()*50)].capitalize()]
                 result.append( {
                         "question":x.replace(y,"_________"),
                         "answer":y,
@@ -59,7 +59,7 @@ def generatePlace(sentences,level):
         for y in x.split(" "):
             name = get_close_matches(y.lower(),rows, 1, 0.80)
             if len(name) != 0:
-                answers = [y,"Adaś","Mariusz","Tadeusz"]
+                answers = [y,rows[math.trunc(random.random()*50)],math.trunc(random.random()*50),math.trunc(random.random()*50)]
                 result.append( {
                         "question":x.replace(y,"_________"),
                         "answer":y,
