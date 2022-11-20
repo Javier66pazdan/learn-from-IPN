@@ -1,6 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Subject} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
+
+export interface Question {
+  question: string;
+  answer: string | number;
+  answers: string[]
+}
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +18,8 @@ export class QuizService {
   constructor(private http: HttpClient) { }
   url: string = "http://localhost:3000";
 
-  getQuestions(body: {subject: string, level: number}){
-    return this.http.post(this.url+"/",body);
+  getQuestions(body: {subject: string, level: number}): Observable<Question[]> {
+    return this.http.post<Question[]>(this.url+"/",body);
   }
 
   setQuizQuestions(questions: any) {

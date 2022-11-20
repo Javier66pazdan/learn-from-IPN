@@ -21,11 +21,11 @@
         </div>
     </form>
 
-    <p *ngIf="formCompletedMsg">{{formCompletedMsg}}</p>
+    <p *ngIf="formCompletedMsg" class="mt-3">{{formCompletedMsg}}</p>
     <div *ngIf="formCompletedMsg">
       <div id="chart">
         <apx-chart [series]="chartOpts" [chart]="{
-        type: 'donut' }" [labels]="legend"></apx-chart>
+        type: 'donut' }" [labels]="legend" [colors]="chartColors"></apx-chart>
       </div>
     </div>
   </div>

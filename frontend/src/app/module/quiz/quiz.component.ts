@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-import {QuizService} from "../../services/quiz.service";
+import {Question, QuizService} from "../../services/quiz.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import html2canvas from "html2canvas";
 import * as jspdf from "jspdf";
@@ -15,12 +15,6 @@ import {
   ApexChart,
 } from 'ng-apexcharts';
 
-// export type ChartOptions = {
-//   series: ApexNonAxisChartSeries;
-//   chart: ApexChart;
-//   responsive: ApexResponsive[];
-//   labels: any;
-// };
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -31,44 +25,22 @@ export class QuizComponent implements OnInit {
   chart!: ChartComponent;
   series: any = [];
   chartOpts: any = {};
+  chartColors: string[] = [
+    '#0BD549',
+    '#FF5733'
+  ]
   legend: any = [];
 
-  // @ViewChild('chart')
-  // chart!: ChartComponent;
-  // public chartOptions: Partial<ChartOptions>;
-
   color: ThemePalette;
-  questions!: any;
+  questions!: Question[];
   form!: FormGroup;
   goodAnswers: number = 0;
   formCompletedMsg: string | null = null;
 
-  constructor(private quizService: QuizService) {
-    // this.chartOptions = {
-    //   series: [44, 55, 13, 43, 22],
-    //   chart: {
-    //     width: 380,
-    //     type: 'pie',
-    //   },
-    //   labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-    //   responsive: [
-    //     {
-    //       breakpoint: 480,
-    //       options: {
-    //         chart: {
-    //           width: 200,
-    //         },
-    //         legend: {
-    //           position: 'bottom',
-    //         },
-    //       },
-    //     },
-    //   ],
-    // };
-  }
+  constructor(private quizService: QuizService) {}
 
   /* Randomize array in-place using Durstenfeld shuffle algorithm */
-  shuffleArray(array: any) {
+  shuffleArray(array: string[] | number[]) {
     for (let i = array.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       let temp = array[i];
@@ -96,7 +68,7 @@ export class QuizComponent implements OnInit {
     if (this.questions[0] == null) {
       window.location.href = './';
     }
-    this.questions.forEach((q: any) => {
+    this.questions.forEach((q: Question) => {
       this.shuffleArray(q.answers);
     });
     this.initForm();
@@ -112,7 +84,7 @@ export class QuizComponent implements OnInit {
 
   initForm() {
     this.form = new FormGroup({});
-    this.questions.forEach((q: any, i: number) =>
+    this.questions.forEach((q: Question, i: number) =>
       this.form.addControl(
         i.toString(),
         new FormControl(null, Validators.required)
@@ -123,7 +95,7 @@ export class QuizComponent implements OnInit {
   }
 
   submit() {
-    this.questions.map((q: any, i: number) => {
+    this.questions.map((q: Question, i: number) => {
       if (q.answer === this.form.value[i]) {
         this.goodAnswers++;
       }
@@ -140,13 +112,13 @@ export class QuizComponent implements OnInit {
 
   generateDocx() {
     const questionParagraphs: Paragraph[] = [];
-    this.questions.forEach((q: any, index: number) => {
+    this.questions.forEach((q: Question, index: number) => {
       questionParagraphs.push(new Paragraph({
       children: [
           new TextRun(`${index+1}. ${q.question}`),
       ]
       }))
-      q.answers.forEach((answer: any) => {
+      q.answers.forEach((answer) => {
         questionParagraphs.push(new Paragraph({
           children: [
               new TextRun(`⚪ ${answer}`),
