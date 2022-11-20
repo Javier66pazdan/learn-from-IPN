@@ -63,7 +63,7 @@ export class QuizComponent implements OnInit{
         labelList.forEach((label)=>{
         label.classList.add('m-0');
       });
-    }, 2500);
+    }, 0);
   }
 
   initForm() {
