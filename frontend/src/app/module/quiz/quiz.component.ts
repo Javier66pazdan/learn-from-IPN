@@ -28,7 +28,8 @@ export class QuizComponent implements OnInit {
   @ViewChild('chart')
   chart!: ChartComponent;
   series: any = [];
-  chartOpts:any = {};
+  chartOpts: any = {};
+  legend: any = [];
 
   // @ViewChild('chart')
   // chart!: ChartComponent;
@@ -130,6 +131,8 @@ export class QuizComponent implements OnInit {
 
     this.chartOpts = [this.goodAnswers, this.questions.length - this.goodAnswers];
     console.log(this.chartOpts);
+    this.legend = ["Poprawne", "Niepoprawne"];
+
 
   }
 }
