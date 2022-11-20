@@ -11,7 +11,7 @@
       <div class="input-info col-12">
         <h4>Wprowadź słowo kluczowe</h4>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <form class="example-form" (ngSubmit)="onSubmit()">
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Słowa kluczowe" [(ngModel)]="searchedValue" name="searchedValue">
@@ -22,7 +22,7 @@
         </form>
       </div>
       <!-- radiobox -->
-      <div class="col-6 radio-buttons">
+      <div class="col-12 col-md-6 radio-buttons">
         <mat-radio-group aria-label="Select an option" color="accent" id="accentColor">
           <div>
             <mat-radio-button value="1" [checked]="true" color="accent">Łatwy (5 pytań)</mat-radio-button>

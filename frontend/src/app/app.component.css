@@ -58,6 +58,7 @@ button:focus { outline: none !important;;}
   .footer {
     position: fixed;
     margin-bottom: 0;
+    z-index:100;
     bottom: 0;
     left: 0;
     right: 0;
@@ -349,4 +350,24 @@ button:focus { outline: none !important;;}
 
 .footer-author {
   min-width: 50%;
+
+}
+/* .footer-author div {
+  font-size: 15px;
+} */
+
+
+@media only screen and (max-width: 600px) {
+  h5 {
+    font-size:15px;
+  }
+  .fontMobile{
+    font-size: 10px;
+  }
+  .paddingMobile{
+    padding: 0px 10px;
+  }
+  .footer-author{
+    width: 100%;
+  }
 }
