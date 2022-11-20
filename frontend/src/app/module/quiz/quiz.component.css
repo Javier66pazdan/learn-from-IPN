@@ -31,6 +31,10 @@
   color: white !important;
 }
 
+.labelStyle>.mdc-form-field>label{
+    margin-bottom: 0 !important;
+}
+
 .btnGenerate.mat-mdc-raised-button:not(:disabled) {
   /* background-color: var(--mdc-protected-button-label-text-color); */
   background-color: red !important;
