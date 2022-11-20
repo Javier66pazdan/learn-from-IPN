@@ -35,7 +35,7 @@ def make_quiz(requested_subject):
         # method to make questions until it will reach specified amount of questions
         # make_questions(fileContent)
         readyQuestions = questionGenerator.generateDate(pdfReader.sliceSentence(fileContent), 5)
-
+        readyQuestions += questionGenerator.generateName(pdfReader.sliceSentence(fileContent),5)
         for question in readyQuestions:
             questions.append(question)
         # filesContent.append(pdfReader.getTextFromFile('./pdfs_and_words/' + fileName))
