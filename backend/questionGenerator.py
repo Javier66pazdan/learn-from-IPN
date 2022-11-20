@@ -25,6 +25,10 @@ def generateDate(sentences,level):
                     })
     return question
 
+<<<<<<< HEAD
+=======
+#TODO Losowe złe imiona i poziomy trudnosci
+>>>>>>> 687f5720bb2cc6240f6fbe7a292c97c66a3ef71c
 def generateName(sentences,level):
     rows=[]
     result=[]
@@ -45,6 +49,10 @@ def generateName(sentences,level):
                 break
                     
     return result
+<<<<<<< HEAD
+=======
+
+>>>>>>> 687f5720bb2cc6240f6fbe7a292c97c66a3ef71c
 #TODO Losowe złe wartosci i poziomy trudnosci
 def generatePlace(sentences,level):
     rows=[]
@@ -64,4 +72,9 @@ def generatePlace(sentences,level):
                         "answers": answers
                     })
                 break
+<<<<<<< HEAD
     return result
+=======
+    return result
+
+>>>>>>> 687f5720bb2cc6240f6fbe7a292c97c66a3ef71c
