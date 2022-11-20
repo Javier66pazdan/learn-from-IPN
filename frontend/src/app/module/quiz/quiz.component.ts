@@ -50,6 +50,9 @@ export class QuizComponent implements OnInit{
   ngOnInit(): void {
     // this.questions = this.quizService.getQuestions()
     this.questions = this.quizService.getQuizQuestions();
+    if(this.questions[0] == null){
+      window.location.href = './';
+    }
     this.questions.forEach((q: any) => {
       this.shuffleArray(q.answers)
     })
