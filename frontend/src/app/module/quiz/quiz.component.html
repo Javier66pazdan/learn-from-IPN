@@ -17,5 +17,10 @@
     </form>
 
     <p *ngIf="formCompletedMsg">{{formCompletedMsg}}</p>
+    <div *ngIf="formCompletedMsg">
+      <div id="chart">
+        <apx-chart [series]="chartOpts.series" [chart]="chartOpts.chart"></apx-chart>
+      </div>
+    </div>
   </div>
 </section>

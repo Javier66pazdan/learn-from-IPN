@@ -7,10 +7,17 @@ import {
   MatRadioModule,
   MAT_RADIO_DEFAULT_OPTIONS,
 } from '@angular/material/radio';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [],
-  imports: [MatRadioModule, MatButtonModule, MatIconModule, MatInputModule],
+  imports: [
+    MatRadioModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    NgApexchartsModule,
+  ],
   providers: [
     {
       provide: MAT_RADIO_DEFAULT_OPTIONS,
@@ -18,6 +25,12 @@ import {
     },
   ],
   bootstrap: [],
-  exports: [MatRadioModule, MatButtonModule, MatIconModule, MatInputModule],
+  exports: [
+    MatRadioModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    NgApexchartsModule,
+  ],
 })
 export class MaterialModule {}

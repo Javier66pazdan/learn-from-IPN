@@ -60,3 +60,9 @@
   /* background-color: var(--mdc-protected-button-label-text-color); */
   background-color: red !important;
 }
+
+#chart {
+  max-width: 380px;
+  margin: 35px auto;
+  padding: 0;
+}
