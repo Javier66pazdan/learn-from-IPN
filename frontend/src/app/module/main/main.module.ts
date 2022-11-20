@@ -9,11 +9,19 @@ import {
   MatRadioModule,
   MAT_RADIO_DEFAULT_OPTIONS,
 } from '@angular/material/radio';
+// import { SpinnersAngularModule } from 'spinners-angular';
+// import { SpinnerCircularModule } from 'spinners-angular/spinner-circular';
 
 
 @NgModule({
   declarations: [MainComponent],
-  imports: [CommonModule, MaterialModule, FormsModule, MainRoutingModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    FormsModule,
+    MainRoutingModule,
+    // SpinnerCircularModule
+  ],
   providers: [
     {
       provide: MAT_RADIO_DEFAULT_OPTIONS,

@@ -1,7 +1,3 @@
-.home-button{
-    /* position: absolute;
-    left: 95%; */
-}
 section {
   width: 100%
 }
@@ -346,8 +342,4 @@ button:focus { outline: none !important;;}
   margin: 0;
   border: 0 !important;
     background-color: transparent !important;
-}
-
-.toolbar[_ngcontent-nim-c16] img[_ngcontent-nim-c16]{
-
 }

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import {QuizService} from "../../services/quiz.service";
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-main',
