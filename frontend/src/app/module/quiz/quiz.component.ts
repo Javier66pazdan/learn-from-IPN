@@ -14,6 +14,7 @@ import {
   ApexResponsive,
   ApexChart,
 } from 'ng-apexcharts';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -37,7 +38,7 @@ export class QuizComponent implements OnInit {
   goodAnswers: number = 0;
   formCompletedMsg: string | null = null;
 
-  constructor(private quizService: QuizService) {}
+  constructor(private quizService: QuizService, private router: Router) {}
 
   /* Randomize array in-place using Durstenfeld shuffle algorithm */
   shuffleArray(array: string[] | number[]) {
@@ -50,23 +51,38 @@ export class QuizComponent implements OnInit {
   }
 
   exportAsPDF(divId: any) {
-    let data = document.getElementById(divId);
+    const data = document.getElementById(divId) as string | HTMLElement;
     // @ts-ignore
     html2canvas(data).then((canvas) => {
       const contentDataURL = canvas.toDataURL('image/png'); // 'image/jpeg' for lower quality output.
       // @ts-ignore
       let pdf = new jsPDF('v', 'cm', 'a4'); 
       // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
-      pdf.addImage(contentDataURL, 'PNG', 0.5, 0.2, 20, 10);
+      pdf.addImage(contentDataURL, 'PNG', 1, 1, 15, 15);
       pdf.save('Filename.pdf');
     });
+    // const doc = new jsPDF('p', 'px', 'a4'); 
+
+    //   doc.html(
+    //     data, {
+    //       callback: function (pdf:any) {
+    //         pdf.setFontSize(12)
+    //         pdf.save('Test.pdf');
+    //       },
+          
+    //       x: 0,
+    //       y: 0,
+    //       html2canvas: { scale: 0.25 },
+    //     },
+    //   );
+    // }
   }
 
   ngOnInit(): void {
     // this.questions = this.quizService.getQuestions()
     this.questions = this.quizService.getQuizQuestions();
     if (this.questions[0] == null) {
-      window.location.href = './';
+      this.router.navigate(['./'])
     }
     this.questions.forEach((q: Question) => {
       this.shuffleArray(q.answers);
