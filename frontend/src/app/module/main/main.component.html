@@ -16,25 +16,27 @@
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Słowa kluczowe" [(ngModel)]="searchedValue" name="searchedValue">
           </mat-form-field>
+          <div class="col-12 col-md-6 radio-buttons">
+            <mat-radio-group aria-label="Select an option" color="accent" id="accentColor"
+            [(ngModel)]="level" name="level">
+              <div>
+                <mat-radio-button value="1" [checked]="true" color="accent">Łatwy (5 pytań)</mat-radio-button>
+              </div>
+              <div>
+                <mat-radio-button value="2" color="accent">Średni (10 pytań)</mat-radio-button>
+              </div>
+              <div>
+                <mat-radio-button value="3" color="accent">Trudny (20 pytań)</mat-radio-button>
+              </div>
+            </mat-radio-group>
+          </div>
           <div>
             <button type="submit" mat-raised-button class="btnGenerate">Generuj</button>
           </div>
         </form>
       </div>
       <!-- radiobox -->
-      <div class="col-12 col-md-6 radio-buttons">
-        <mat-radio-group aria-label="Select an option" color="accent" id="accentColor">
-          <div>
-            <mat-radio-button value="1" [checked]="true" color="accent">Łatwy (5 pytań)</mat-radio-button>
-          </div>
-          <div>
-            <mat-radio-button value="2" color="accent">Średni (10 pytań)</mat-radio-button>
-          </div>
-          <div>
-            <mat-radio-button value="3" (color)="accent">Trudny (20 pytań)</mat-radio-button>
-          </div>
-        </mat-radio-group>
-      </div>
+      
     </div>
   </section>
   <div *ngIf="isLoading" class="loader"></div>
