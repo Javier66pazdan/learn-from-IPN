@@ -16,7 +16,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    NgApexchartsModule,
+    NgApexchartsModule
   ],
   providers: [
     {

@@ -65,4 +65,11 @@
   padding: 0;
 }
 
+@media only screen and (max-width: 600px) {
+  #chart{
+    margin-bottom: 100px;
+  }
+
+}
+
 button:focus { outline: none !important;;}

@@ -24,12 +24,13 @@ export class MainComponent {
       subject: this.searchedValue,
     };
     this.quizService.getQuestions(body).subscribe({
-      next: (value) => {
+      next: (value) => {      
         this.quizService.setQuizQuestions(value);
-        this.router.navigate(['/quiz']);
+        this.router.navigate(['/quiz']);      
       },
       error: (err) => {
-        console.log(err);
+        alert("Podano błędną frazę");
+        this.isLoading = false;
       },
       complete: () => {
         this.isLoading = false;
