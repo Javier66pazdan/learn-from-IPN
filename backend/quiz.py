@@ -59,7 +59,8 @@ def make_quiz(requested_subject,requested_level):
                 rows.append(row)
         for question in readyQuestions:
             for row in rows:
-                if row[0] not in question['question'] and len(get_close_matches(question['question'],questionsArr,2,0.7)) ==0 :
+
+                if str(row[0]) not in question['question'] and len(get_close_matches(question['question'],questionsArr,2,0.7)) ==0 :
                     questions.append(question)
                     questionsArr.append(question['question'])
         # filesContent.append(pdfReader.getTextFromFile('./pdfs_and_words/' + fileName))

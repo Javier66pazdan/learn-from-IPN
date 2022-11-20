@@ -1,5 +1,4 @@
 import PyPDF2
-import docx2txt
 
 def getTextFromFile(fname):
     if fname.split(".")[2] =="docx":
